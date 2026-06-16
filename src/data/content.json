@@ -1,0 +1,109 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Building a REST API with Node.js",
+      "type": "video",
+      "platform": "youtube",
+      "url": "https://youtube.com/watch?v=PLACEHOLDER_ID",
+      "embedUrl": "https://youtube.com/embed/PLACEHOLDER_ID",
+      "thumbnail": "",
+      "date": "2026-05-10",
+      "tags": ["tutorial", "nodejs", "api"],
+      "description": "A complete walkthrough on building a REST API from scratch using Express and MongoDB."
+    },
+    {
+      "id": "2",
+      "title": "Morning Jazz for Deep Focus",
+      "type": "sound",
+      "platform": "soundcloud",
+      "url": "https://soundcloud.com/user/morning-jazz",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https://soundcloud.com/user/morning-jazz",
+      "date": "2026-04-22",
+      "tags": ["music", "jazz", "focus"],
+      "description": "Relaxing jazz music perfect for deep work sessions."
+    },
+    {
+      "id": "3",
+      "title": "Why I switched to minimalism",
+      "type": "text",
+      "platform": "instagram",
+      "url": "https://instagram.com/p/PLACEHOLDER_3",
+      "embedUrl": "https://instagram.com/p/PLACEHOLDER_3/embed",
+      "date": "2026-06-01",
+      "tags": ["lifestyle", "minimalism"],
+      "description": "My journey to a simpler, more intentional life.",
+      "body": "A year ago, I decided to declutter my life completely. Here's what I learned:\n\n1. Less stuff = less stress. Every physical object demands a slice of your attention.\n2. Digital minimalism is just as important — I unsubscribed from 20 newsletters and deleted 5 apps.\n3. Quality over quantity in everything you own. A well-made jacket you wear daily beats 10 cheap ones.\n4. Saying \"no\" more often frees up time for what truly matters.\n\nIt's not about deprivation. It's about making room for what you love."
+    },
+    {
+      "id": "4",
+      "title": "React Hooks Deep Dive",
+      "type": "video",
+      "platform": "youtube",
+      "url": "https://youtube.com/watch?v=PLACEHOLDER_4",
+      "embedUrl": "https://youtube.com/embed/PLACEHOLDER_4",
+      "thumbnail": "",
+      "date": "2026-03-15",
+      "tags": ["react", "hooks", "javascript"],
+      "description": "Understanding useEffect, useCallback, useMemo, and custom hooks."
+    },
+    {
+      "id": "5",
+      "title": "Late Night Coding Playlist",
+      "type": "sound",
+      "platform": "soundcloud",
+      "url": "https://soundcloud.com/user/lofi-coding",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https://soundcloud.com/user/lofi-coding",
+      "date": "2026-02-10",
+      "tags": ["music", "lofi", "coding"],
+      "description": "Lo-fi beats to code to — updated weekly."
+    },
+    {
+      "id": "6",
+      "title": "My productivity stack for 2026",
+      "type": "text",
+      "platform": "instagram",
+      "url": "https://instagram.com/p/PLACEHOLDER_6",
+      "embedUrl": "https://instagram.com/p/PLACEHOLDER_6/embed",
+      "date": "2026-01-20",
+      "tags": ["productivity", "tools"],
+      "description": "The tools keeping me productive this year.",
+      "body": "Here are the tools keeping me productive this year:\n\n- Obsidian for notes and knowledge management\n- Todoist for task tracking\n- VS Code for all my coding needs\n- Notion for project planning\n- Arc browser for organized tab management\n\nThe key isn't the tools themselves — it's building a system around them."
+    },
+    {
+      "id": "7",
+      "title": "CSS Grid Masterclass",
+      "type": "video",
+      "platform": "youtube",
+      "url": "https://youtube.com/watch?v=PLACEHOLDER_7",
+      "embedUrl": "https://youtube.com/embed/PLACEHOLDER_7",
+      "thumbnail": "",
+      "date": "2026-06-12",
+      "tags": ["css", "frontend", "webdev"],
+      "description": "Everything you need to know about CSS Grid layouts."
+    },
+    {
+      "id": "8",
+      "title": "Weekend Vibes Mix",
+      "type": "sound",
+      "platform": "soundcloud",
+      "url": "https://soundcloud.com/user/weekend-mix",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https://soundcloud.com/user/weekend-mix",
+      "date": "2026-05-30",
+      "tags": ["music", "chill", "weekend"],
+      "description": "Chill electronic mix for your weekend."
+    },
+    {
+      "id": "9",
+      "title": "How I stay consistent with meditation",
+      "type": "text",
+      "platform": "instagram",
+      "url": "https://instagram.com/p/PLACEHOLDER_9",
+      "embedUrl": "https://instagram.com/p/PLACEHOLDER_9/embed",
+      "date": "2026-04-05",
+      "tags": ["meditation", "mindfulness", "habits"],
+      "description": "My daily meditation practice and how I maintain it.",
+      "body": "I've meditated every day for the past 300 days. Here's how:\n\n1. Start with just 2 minutes. Anyone can do 2 minutes.\n2. Same time, same place — 7 AM at my desk.\n3. Use a tracker app. Streaks are surprisingly motivating.\n4. Don't aim for a \"clear mind\". That's a myth.\n5. When you miss a day, just start again tomorrow.\n\nConsistency beats intensity."
+    }
+  ]
+}
