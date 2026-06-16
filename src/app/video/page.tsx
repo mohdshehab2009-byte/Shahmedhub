@@ -1,6 +1,6 @@
 import ContentGrid from "@/components/ContentGrid";
 import type { ContentItem } from "@/components/ContentGrid";
-import raw from "@/data/content.json";
+import raw from "@/data/generated-content.json";
 
 const content = raw as { items: ContentItem[] };
 
