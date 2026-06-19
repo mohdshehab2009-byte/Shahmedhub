@@ -17,6 +17,7 @@ export interface ContentItem {
   tags: string[];
   description?: string;
   body?: string;
+  embedHeight?: number;
 }
 
 const fuseOptions = {

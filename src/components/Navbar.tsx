@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useSearch } from "@/app/search-context";
 
 const links = [
-  { href: "/", label: "All" },
-  { href: "/video", label: "Video" },
-  { href: "/sound", label: "Sound" },
-  { href: "/text", label: "Text" },
+  { href: "/", label: "الكل" },
+  { href: "/video", label: "فيديو" },
+  { href: "/sound", label: "صوت" },
+  { href: "/text", label: "نصوص" },
 ];
 
 export default function Navbar() {

@@ -56,7 +56,7 @@ export default function ContentCard({ item }: { item: ContentItem }) {
             <VideoEmbed url={item.embedUrl} title={item.title} />
           )}
           {item.type === "sound" && (
-            <SoundEmbed url={item.embedUrl} title={item.title} />
+            <SoundEmbed url={item.embedUrl} title={item.title} height={item.embedHeight} />
           )}
           {item.type === "text" && <TextEmbed item={item} />}
         </div>
