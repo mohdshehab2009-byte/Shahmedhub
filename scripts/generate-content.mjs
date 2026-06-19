@@ -67,11 +67,57 @@ async function fetchYouTubeVideos(apiKey, channelId) {
   });
 }
 
+async function fetchSoundCloudTracks(clientId, username) {
+  // Step 1: resolve username to user ID
+  const resolveRes = await fetch(
+    `https://api.soundcloud.com/resolve?url=https://soundcloud.com/${username}&client_id=${clientId}`
+  );
+  if (!resolveRes.ok) throw new Error(`Failed to resolve user: ${resolveRes.status}`);
+  const user = await resolveRes.json();
+
+  // Step 2: fetch all tracks for the user
+  const tracks = [];
+  let offset = 0;
+  const limit = 50;
+
+  while (true) {
+    const url = `https://api.soundcloud.com/users/${user.id}/tracks?client_id=${clientId}&limit=${limit}&offset=${offset}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Failed to fetch tracks: ${res.status}`);
+    const data = await res.json();
+    if (!data || data.length === 0) break;
+    tracks.push(...data);
+    if (data.length < limit) break;
+    offset += limit;
+  }
+
+  return tracks.map((track) => {
+    const tags = (track.tag_list || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((t) => t.replace(/^"|"$/g, ""));
+    return {
+      id: `sc_${track.id}`,
+      title: track.title,
+      type: "sound",
+      platform: "soundcloud",
+      url: track.permalink_url,
+      embedUrl: `https://w.soundcloud.com/player/?url=${track.permalink_url}`,
+      thumbnail: track.artwork_url || null,
+      date: (track.created_at || "").split("T")[0],
+      tags,
+      description: (track.description || "").slice(0, 300) || "",
+    };
+  });
+}
+
 async function main() {
   const apiKey = process.env.YOUTUBE_API_KEY;
   const channelId = process.env.YOUTUBE_CHANNEL_ID;
+  const scClientId = process.env.SOUNDCLOUD_CLIENT_ID;
+  const scUsername = process.env.SOUNDCLOUD_USERNAME;
 
-  // Read manual items (SoundCloud, Instagram, text posts)
+  // Read manual items (Instagram, text posts)
   const { items: manualItems } = readJSON(MANUAL_PATH);
   const finalItems = [...manualItems];
   const seenUrls = new Set(finalItems.map((i) => i.url));
@@ -99,12 +145,35 @@ async function main() {
     );
   }
 
+  // Fetch SoundCloud tracks if configured
+  let soundcloudCount = 0;
+
+  if (scClientId && scUsername) {
+    try {
+      const soundcloudTracks = await fetchSoundCloudTracks(scClientId, scUsername);
+      for (const track of soundcloudTracks) {
+        if (!seenUrls.has(track.url)) {
+          finalItems.push(track);
+          seenUrls.add(track.url);
+          soundcloudCount++;
+        }
+      }
+      console.log(`✓ SoundCloud: ${soundcloudCount} tracks fetched`);
+    } catch (err) {
+      console.error(`✗ SoundCloud fetch failed: ${err.message}`);
+    }
+  } else {
+    console.log(
+      "ℹ No SOUNDCLOUD_CLIENT_ID / SOUNDCLOUD_USERNAME set — skipping SoundCloud fetch"
+    );
+  }
+
   // Sort by date descending
   finalItems.sort((a, b) => b.date.localeCompare(a.date));
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({ items: finalItems }, null, 2));
   console.log(
-    `✓ Generated ${finalItems.length} items total (${manualItems.length} manual, ${youtubeCount} from YouTube)`
+    `✓ Generated ${finalItems.length} items total (${manualItems.length} manual, ${youtubeCount} from YouTube, ${soundcloudCount} from SoundCloud)`
   );
 }
 
