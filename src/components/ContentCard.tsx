@@ -8,7 +8,7 @@ import type { ContentItem } from "./ContentGrid";
 
 const platformMeta: Record<string, { label: string; color: string }> = {
   youtube: { label: "YouTube", color: "bg-red-100 text-red-700" },
-  soundcloud: { label: "SoundCloud", color: "bg-orange-100 text-orange-700" },
+  soundcloud: { label: "صوتيات", color: "bg-orange-100 text-orange-700" },
   instagram: { label: "Instagram", color: "bg-pink-100 text-pink-700" },
 };
 
